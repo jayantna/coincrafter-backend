@@ -3,13 +3,31 @@ pragma solidity ^0.8.19;
 
 import {Token} from "./Token.sol";
 
+/**
+ * @title CraftERC20Token
+ * @dev Contract to mint an ERC20 token.
+ * @author Jayant Nagle
+ */
+
 contract CraftERC20Token {
+    /**
+     * @dev Event to keep track of the token crafted by the deployer.
+     * @param tokenDeployer The address of the deployer of the token.
+     * @param tokenContract The address of the token contract.
+     */
     event TokenCrafted(address indexed tokenDeployer, address tokenContract);
+
+    /**
+     * @dev Mapping to keep track of all tokens minted by an address.
+     */
 
     mapping(address => address[]) private tokenOwnerToContracts;
     mapping(address => bool) private isTokenOwner;
     address[] private tokenOwners;
 
+    /**
+    * @dev Function to mint an ERC20 token.
+    */
     function mintERC20Token(uint256 initialSupply, string memory tokenName, string memory tokenSymbol)
         public
         returns (Token)
