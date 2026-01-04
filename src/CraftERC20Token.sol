@@ -14,8 +14,9 @@ contract CraftERC20Token {
      * @dev Event to keep track of the token crafted by the deployer.
      * @param tokenDeployer The address of the deployer of the token.
      * @param tokenContract The address of the token contract.
+     * @param identifier Token Contract Identifier 0: ERC20 1: ERC721
      */
-    event TokenCrafted(address indexed tokenDeployer, address tokenContract);
+    event TokenCrafted(address indexed tokenDeployer, address tokenContract, uint8 identifier);
 
     /**
      * @dev Mapping to keep track of all tokens minted by an address.
@@ -42,7 +43,7 @@ contract CraftERC20Token {
             isTokenOwner[msg.sender] = true;
         }
 
-        emit TokenCrafted(msg.sender, address(token));
+        emit TokenCrafted(msg.sender, address(token), 0);
         return token;
     }
 

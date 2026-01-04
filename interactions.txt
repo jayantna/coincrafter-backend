@@ -1,4 +1,5 @@
 forge create CraftERC20Token --rpc-url https://base-sepolia.g.alchemy.com/v2/IJv2aCEqiykAEmqT2BgOe --account metamask --broadcast
+forge script script/DeployCraftERC721Token.s.sol --rpc-url https://base-sepolia.g.alchemy.com/v2/IJv2aCEqiykAEmqT2BgOe --account metamask --broadcast
 
 metamask wallet 0x9a0FA1e56d01A6771c34DE9688a4477E3e8D5ec9
 
@@ -8,13 +9,13 @@ CraftERC20Token.sol
 
 Base sepolia deployment
 CraftERC721Token.sol
-0xD6507E29fA1d984824157a1d8Ec018762e4EE31a
+0xe5d8bfc9168F7D234e9f39Ec79b279A185eF12C4
 
 Token
 Jonty JNT 0x29892f9f8856db3d5c92059d3d1a7d4768ad98c8
 
 NFT
-Friends FRND 0x62EBB7d7EcE41E413DEC4b9d35b3a6b0FA520643
+Friends FRND 0x0BE6B00E3e52C5C71551A1B82803388401dAFDC3
 
 forge flatten ./src/Token.sol > flatten.txt   
 

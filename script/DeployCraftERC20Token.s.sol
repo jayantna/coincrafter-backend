@@ -1,7 +1,7 @@
 //SPDX-License-Identifier: MIT
 pragma solidity ^0.8.19;
 
-import {Script, console} from "forge-std/Script.sol";
+import {Script} from "forge-std/Script.sol";
 import {CraftERC20Token} from "../src/CraftERC20Token.sol";
 
 contract DeployCraftERC20Token is Script {

@@ -15,19 +15,22 @@ import {
 } from "../lib/openzeppelin-contracts/contracts/access/Ownable.sol";
 
 contract NFT is ERC721, ERC721URIStorage, ERC721Burnable, Ownable {
+    uint256 private _totalMintedTokens;
+
     constructor(
         address initialOwner,
         string memory name,
         string memory symbol
     ) ERC721(name, symbol) Ownable(initialOwner) {}
 
-    function safeMint(
-        address to,
-        uint256 tokenId,
-        string memory uri
-    ) public onlyOwner {
+    function safeMint(address to, string memory uri) public onlyOwner {
+        uint256 tokenId = _totalMintedTokens++;
         _safeMint(to, tokenId);
         _setTokenURI(tokenId, uri);
+    }
+
+    function mintedTokens() public view returns (uint256) {
+        return _totalMintedTokens;
     }
 
     function tokenURI(
